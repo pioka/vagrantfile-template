@@ -1,0 +1,3 @@
+.vagrant/
+disks/*.vdi
+config.rb
