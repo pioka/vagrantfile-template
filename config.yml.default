@@ -1,0 +1,17 @@
+# cpus <Integer> required:
+#   Required. Number of CPUs
+# memory_mb <Integer> required:
+#   Required. Size of RAM[MB].
+# external_disk_size_mb <Integer>:
+#   Optional. Size of External disk[MB]. Device /dev/sdb will be added.
+# private_ip <String>:
+#   Required. Host only adapter address to access guest machine
+# ssh_forward_port <Integer>:
+#   Required. SSH port number forwarding host machine.
+
+hosts:
+  examplehost01:
+    cpus: 1
+    memory_mb: 512
+    private_ip: 192.168.222.10
+    ssh_forward_port: 22210
