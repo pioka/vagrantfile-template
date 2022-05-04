@@ -9,7 +9,7 @@ CONFIG_YML = YAML.load(ERB.new(File.read('config.yml')).result)
 def check_config(host_config, required_keys)
   abort("host not defined in config.yml") if host_config.nil?
   required_keys.each do |k|
-    abort("#{k} not defined") if not host_config.has_key?(k)
+    abort("#{k} is nil") if host_config.dig(*k).nil?
   end
 end
 
