@@ -13,5 +13,10 @@ hosts:
   examplehost01:
     cpus: 1
     memory_mb: 512
-    private_ip: 192.168.222.10
-    ssh_forward_port: 22210
+    private_ip: 192.168.222.11
+    ssh_forward_port: 22211
+  examplehost02:
+    cpus: 1
+    memory_mb: 512
+    private_ip: 192.168.222.12
+    ssh_forward_port: 22212
