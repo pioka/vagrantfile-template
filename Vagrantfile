@@ -31,6 +31,7 @@ Vagrant.configure("2") do |config|
       c.vm.provider "virtualbox" do |v|
         v.cpus = host_config['cpus']
         v.memory = host_config['memory_mb']
+        v.customize ['modifyvm', :id, '--nictype1', 'virtio']
 
         # Additional disk
         vdi_path = "./disks/#{hostname}_sdb.vdi"
