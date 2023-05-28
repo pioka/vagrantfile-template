@@ -37,22 +37,22 @@ Vagrant.configure("2") do |config|
           '--nictype1', 'virtio'
         ]
 
-        # Additional disk
-        vdi_path = "./disks/#{hostname}_sdb.vdi"
-        if not File.exist?(vdi_path)
-          v.customize [
-            "createvdi",
-            "--filename", vdi_path, 
-            "--size", 1024
-          ]
-        end
-        v.customize [
-          'storageattach', :id,
-          '--storagectl', 'SATA Controller',
-          '--port', 1,
-          '--device', 0,
-          '--type', 'hdd',
-          '--medium', vdi_path]
+        ## Additional disk
+        #vdi_path = "./disks/#{hostname}_sdb.vdi"
+        #if not File.exist?(vdi_path)
+        #  v.customize [
+        #    "createvdi",
+        #    "--filename", vdi_path,
+        #    "--size", 1024
+        #  ]
+        #end
+        #v.customize [
+        #  'storageattach', :id,
+        #  '--storagectl', 'SATA Controller',
+        #  '--port', 1,
+        #  '--device', 0,
+        #  '--type', 'hdd',
+        #  '--medium', vdi_path]
       end
     end
   end

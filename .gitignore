@@ -1,3 +1,2 @@
-.vagrant/
-disks/*.vdi
-config.yml
+/.vagrant/
+/config.yml
