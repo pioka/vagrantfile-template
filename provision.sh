@@ -1,19 +1,21 @@
 #!/bin/sh
 set -x
-# This is an example. Write your provisioning script here.
+## This is an example. Write your provisioning script here.
+#
+#mkdir -p /etc/apt/keyrings
 ##================================
 ## Install docker
 ##================================
-#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --yes --dearmor -o /etc/apt/trusted.gpg.d/docker.gpg
-#echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --yes --dearmor -o /etc/apt/keyrings/docker.gpg
+#echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" \
 #  > /etc/apt/sources.list.d/docker.list
 #apt-get update && apt-get install -y docker-ce
 #
 ##================================
 ## Install nomad
 ##================================
-#curl -fsSL https://apt.releases.hashicorp.com/gpg | gpg --yes --dearmor -o /etc/apt/trusted.gpg.d/hashicorp.gpg
-#echo "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
+#curl -fsSL https://apt.releases.hashicorp.com/gpg | gpg --yes --dearmor -o /etc/apt/keyrings/hashicorp.gpg
+#echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/hashicorp.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" \
 #  > /etc/apt/sources.list.d/hashicorp.list
 #apt-get update && apt-get install -y nomad
 #
