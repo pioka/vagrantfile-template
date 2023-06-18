@@ -7,8 +7,10 @@ CONFIG_YML = YAML.load(
 )
 
 def load_key(hostname, key)
-  v = CONFIG_YML["hosts"][hostname][key]
-  abort("hosts.#{hostname}.#{key} is not defined in config.yml") if v.nil?
+  v = CONFIG_YML.dig('hosts', hostname, key)
+  if v.nil?
+    abort("`hosts.#{hostname}.#{key}` is not defined in config.yml") if v.nil?
+  end
   return v
 end
 
