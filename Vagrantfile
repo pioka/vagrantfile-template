@@ -29,13 +29,12 @@ Vagrant.configure("2") do |config|
         guest: 22,
         host: load_key(hostname, 'ssh_forward_port')
 
+      c.vm.synced_folder "./share", "/vagrant"
+
       c.vm.provider "virtualbox" do |v|
         v.cpus = load_key(hostname, 'cpus')
         v.memory = load_key(hostname, 'memory_mb')
-        v.customize [
-          'modifyvm', :id,
-          '--nictype1', 'virtio'
-        ]
+        v.customize ['modifyvm', :id, '--audio-enabled=off']
 
         ## Additional disk
         #vdi_path = "./disks/#{hostname}_sdb.vdi"
